@@ -1,0 +1,16 @@
+
+.games {
+  background-color: aquamarine;
+
+  &__card {
+    background-color: bisque;
+
+    &__title {
+      text-decoration: underline;
+    }
+
+    &__img {
+      width: 150px;
+    }
+  }
+}

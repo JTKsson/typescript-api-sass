@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from "./steamGames.module.scss"
 
 type Game = {
   title: string,
@@ -39,11 +40,11 @@ const Games = () => {
   }, []);
 
   return (
-      <div>
+      <div className={styles.games}>
         {games.map((game: Game) => (
-          <div key={game.dealID}>
-            <h3>{game.title}</h3>
-            <img src={game.thumb} alt="image" />
+          <div className={styles["games__card"]} key={game.dealID}>
+            <p className={styles["games__card__title"]}>{game.title}</p>
+            <img className={styles["games__card__img"]} src={game.thumb} alt={"thumb of " + game.title} />
             <a href={gameLink + game.dealID}>Go to store page</a>
           </div>
         ))}
