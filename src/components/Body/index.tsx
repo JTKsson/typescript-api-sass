@@ -1,9 +1,16 @@
+import Games from "../SteamGames";
+import styles from "./body.module.scss";
+import Footer from "../Footer";
+
 const Body = () => {
   return (
-    <>
-      <div>This is one side</div>
-      <div>This is the other side</div>
-    </>
+   <div className={styles.bodyContainer}>
+    <div className={styles["bodyContainer__leftSide"]}>
+      <h1 className={styles["bodyContainer__leftSide__title"]}>Steam Deals</h1>
+      <Footer/>
+    </div>
+    <Games/>
+   </div>
   );
 };
 
