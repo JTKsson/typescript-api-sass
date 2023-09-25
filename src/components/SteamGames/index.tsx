@@ -42,11 +42,12 @@ const Games = () => {
   return (
       <div className={styles.games}>
         {games.map((game: Game) => (
-          <div className={styles["games__card"]} key={game.dealID}>
-            <p className={styles["games__card__title"]}>{game.title}</p>
-            <img className={styles["games__card__img"]} src={game.thumb} alt={"thumb of " + game.title} />
+          <div className={styles.gameCard} key={game.dealID}>
+            <p className={styles["gameCard__title"]}>{game.title}</p>
+            <img className={styles["gameCard__img"]} src={game.thumb} alt={"thumb of " + game.title} />
             <a href={gameLink + game.dealID}>Go to store page</a>
           </div>
+          
         ))}
       </div>
   )

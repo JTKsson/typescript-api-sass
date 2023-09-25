@@ -1,16 +1,26 @@
+@import "../../styles/variables";
 
 .games {
   background-color: aquamarine;
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  justify-content: space-between;
+}
 
-  &__card {
-    background-color: bisque;
+.gameCard {
+  background-color: bisque;
+  margin: $indent__s;
+  padding: $indent__base;
+  width: 230px;
 
-    &__title {
-      text-decoration: underline;
-    }
+  &__title {
+    font-family: $font-inclusive;
+    font-size: $font-size__base;
+    margin: 0;
+  }
 
-    &__img {
-      width: 150px;
-    }
+  &__img {
+    width: 150px;
   }
 }
