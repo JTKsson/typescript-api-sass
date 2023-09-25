@@ -14,23 +14,29 @@
   flex-direction: column;
   margin: $indent__s;
   padding: $indent__s;
+  transition: 0.3s ease;
   width: 230px;
 
   &__title {
     color: $color-text;
     font-family: $font-inclusive;
     font-size: $font-size__base;
+    height: $indent__xl;
     margin: 0;
   }
 
   &__img {
     height: auto;
-    width: 100px;
+    width: 80%;
   }
 
   &__price {
     color: $color-text;
     font-family: $font-inclusive;
     font-size: $font-size__s;
+  }
+
+  &:hover {
+    transform: scale(1.2);
   }
 }
