@@ -4,7 +4,8 @@ import styles from "./steamGames.module.scss"
 type Game = {
   title: string,
   thumb: string,
-  dealID: string
+  dealID: string,
+  salePrice: string
 }
 
 const gameLink:string = "https://www.cheapshark.com/redirect?dealID="
@@ -21,11 +22,11 @@ const Games = () => {
       const data: any = await response.json();
       console.log(data);
 
-      // Assuming data is an array of games, you can push each game into the existing array
       const newGames: Game[] = data.map((gameData: any) => ({
         title: gameData.title,
         thumb: gameData.thumb,
         dealID: gameData.dealID,
+        salePrice: gameData.salePrice
       }));
 
       setGames((prevGames) => [...prevGames, ...newGames]);
@@ -45,7 +46,8 @@ const Games = () => {
           <div className={styles.gameCard} key={game.dealID}>
             <p className={styles["gameCard__title"]}>{game.title}</p>
             <img className={styles["gameCard__img"]} src={game.thumb} alt={"thumb of " + game.title} />
-            <a href={gameLink + game.dealID}>Go to store page</a>
+            <p className={styles["gameCard__price"]}>Price: {game.salePrice}</p>
+            <a href={gameLink + game.dealID}>Steam page</a>
           </div>
           
         ))}

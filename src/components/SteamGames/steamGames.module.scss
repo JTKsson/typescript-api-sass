@@ -1,26 +1,36 @@
 @import "../../styles/variables";
 
 .games {
-  background-color: aquamarine;
+  background-color: $color-main;
   display: flex;
   flex-wrap: wrap;
   height: fit-content;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .gameCard {
-  background-color: bisque;
+  background-color: $color-secondary;
+  display: flex;
+  flex-direction: column;
   margin: $indent__s;
-  padding: $indent__base;
+  padding: $indent__s;
   width: 230px;
 
   &__title {
+    color: $color-text;
     font-family: $font-inclusive;
     font-size: $font-size__base;
     margin: 0;
   }
 
   &__img {
-    width: 150px;
+    height: auto;
+    width: 100px;
+  }
+
+  &__price {
+    color: $color-text;
+    font-family: $font-inclusive;
+    font-size: $font-size__s;
   }
 }
