@@ -1,4 +1,5 @@
 @import "./styles/variables";
+@import "./styles/mixins";
 
 * {
   box-sizing: border-box;
@@ -15,4 +16,10 @@ a {
 body {
   margin: 0;
   padding: 0;
+}
+
+.bodyContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }

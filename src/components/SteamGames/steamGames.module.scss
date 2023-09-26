@@ -3,42 +3,75 @@
 .games {
   background-color: $color-main;
   display: flex;
-  flex-wrap: wrap;
-  max-height: 100%;
-  justify-content: space-around;
-  overflow-y: auto;
-  width: auto;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  height: max-content;
+
+  &__callGameButton {
+    background-color: $color-secondary;
+    border: 1px solid $color-text;
+    border-radius: $indent__base;
+    color: $color-text;
+    padding: $indent__s $indent__base;
+    transition: 0.3s ease;
+    width: 150px;
+
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+  }
+
+  &__container {
+    background-color: $color-secondary;
+    width: 70%; 
+    height: 150px; 
+    margin: $indent__l;
+    min-width: 350px; 
+    min-height: 150px;
+    border: 1px solid $color-text;
+    transition: 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+
+  }
 }
 
 .gameCard {
-  background-color: $color-secondary;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  margin: $indent__s;
-  padding: $indent__s;
-  transition: 0.3s ease;
-  width: 230px;
+  padding: $indent__base;
+
 
   &__title {
     color: $color-text;
     font-family: $font-inclusive;
-    font-size: $font-size__base;
-    height: $indent__xl;
+    font-size: $font-size__m;
+    height: 20%;
     margin: 0;
+    margin-bottom: $indent__s;
+    @include responsive-mobile {
+      font-size: $font-size__base;
+    }
   }
 
   &__img {
-    height: auto;
-    width: 50%;
+    height: 50px;    
   }
 
   &__price {
     color: $color-text;
     font-family: $font-inclusive;
     font-size: $font-size__s;
+    margin: 0;
+    padding: $indent__s;
   }
 
-  &:hover {
-    transform: scale(1.2);
-  }
+
 }

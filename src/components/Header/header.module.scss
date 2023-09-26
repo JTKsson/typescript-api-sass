@@ -1,0 +1,11 @@
+@import "../../App.scss";
+
+.title {
+  background-color: $color-secondary;
+  color: $color-text;
+  font-family: $font-inclusive;
+  font-size: $font-size__xl;
+  margin: 0;
+  padding: $indent__base;
+  text-align: center;
+}

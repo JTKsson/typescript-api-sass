@@ -1,14 +1,16 @@
 import './App.scss'
-// import Footer from './components/Footer'
-import Body from './components/Body'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Games from './components/SteamGames'
 
 function App() {
 
   return (
-    <>
-    <Body/>
-    {/* <Footer/> */}
-    </>
+    <div className='bodyContainer'>
+    <Header />
+    <Games/>
+    <Footer/>
+    </div>
   )
 }
 

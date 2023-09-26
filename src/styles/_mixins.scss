@@ -1,0 +1,7 @@
+@import "./variables";
+
+@mixin responsive-mobile {
+  @media screen and (max-width: $screen-mobile) {
+    @content;
+  }
+}
