@@ -1,0 +1,69 @@
+@import "../../App.scss";
+
+.bodyContainer {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+
+  &__header {
+    background-color: $color-secondary;
+    display: flex;
+    flex-direction: column;
+    min-width: 25%;
+    padding: $indent__base;
+
+    &__title {
+      color: $color-text;
+      font-family: $font-inclusive;
+      font-size: $font-size__xl;
+
+      @include responsive-mobile {
+        font-size: $font-size__l;
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      &--button {
+        background-color: aquamarine;
+      }
+    }
+  }
+
+  &__gameList {
+    align-items: stretch;
+    background-color: $color-main;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: space-around;
+    margin: 0;
+    max-height: 100%;
+    overflow-y: auto;
+    padding: $indent__s;
+    width: auto;
+  }
+
+  @include responsive-mobile {
+    flex-direction: column;
+  }
+}
+
+.storeButton {
+  background-color: $color-main;
+  border-radius: $indent__base;
+  border: 1px solid $color-text;
+  color: $color-text;
+  cursor: pointer;
+  padding: $indent__s $indent__base;
+  text-align: center;
+  transition: 0.3s ease;
+  width: 30%;
+
+  &:hover {
+    background-color: $color-secondary;
+  }
+}
