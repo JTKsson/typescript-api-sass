@@ -1,17 +1,44 @@
-import Games from "../SteamGames";
+import { useState } from "react";
+import Games from "../VideoGames";
 import styles from "./body.module.scss";
-import Footer from "../Footer";
 
 const Body = () => {
+  const [storeFilter, setStoreFilter] = useState("");
+
+  const handleStoreChange = (priceFilter: string) => {
+    setStoreFilter(priceFilter);
+  };
+
   return (
-   <div className={styles.bodyContainer}>
-    <div className={styles["bodyContainer__leftSide"]}>
-      <h1 className={styles["bodyContainer__leftSide__title"]}>Steam Deals</h1>
-      <Footer/>
+    <div className={styles.bodyContainer}>
+      <div className={styles["bodyContainer__header"]}>
+        <h1 className={styles["bodyContainer__header__title"]}>Game Deals</h1>
+        <div className={styles["bodyContainer__header__buttons"]}>
+          <button
+            className={styles.storeButton}
+            onClick={() => handleStoreChange("1")}
+          >
+            Steam
+          </button>
+          <button
+            className={styles.storeButton}
+            onClick={() => handleStoreChange("7")}
+          >
+            GoG
+          </button>
+          <button
+            className={styles.storeButton}
+            onClick={() => handleStoreChange("8")}
+          >
+            Origin
+          </button>
+        </div>
+      </div>
+      <div className={styles["bodyContainer__gameList"]}>
+        <Games userInput={storeFilter} />
+      </div>
     </div>
-    <Games/>
-   </div>
   );
 };
 
-export default Body
+export default Body;

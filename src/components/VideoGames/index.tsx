@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "./steamGames.module.scss";
+import styles from "./videoGames.module.scss";
 
 type Game = {
   title: string;
@@ -10,11 +10,10 @@ type Game = {
 
 const gameLink: string = "https://www.cheapshark.com/redirect?dealID=";
 
-const Games = () => {
+const Games = ({ userInput }: { userInput: string }) => {
   const [games, setGames] = useState<Game[]>([]);
 
-  const API_URL: string =
-    "https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15";
+  const API_URL: string = `https://www.cheapshark.com/api/1.0/deals?storeID=${userInput}&upperPrice=15`;
 
   const getGames = async (url: string) => {
     try {
@@ -29,7 +28,7 @@ const Games = () => {
         salePrice: gameData.salePrice,
       }));
 
-      setGames((prevGames) => [...prevGames, ...newGames]);
+      setGames(newGames);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -37,24 +36,30 @@ const Games = () => {
 
   useEffect(() => {
     getGames(API_URL);
-  }, []);
+  }, [API_URL, userInput]);
+
+  console.log(API_URL);
 
   return (
-    <div className={styles.games}>
+    <>
       {games.map((game: Game) => (
-        <a href={gameLink + game.dealID}>
-          <div className={styles.gameCard} key={game.dealID}>
-            <p className={styles["gameCard__title"]}>{game.title}</p>
-            <img
-              className={styles["gameCard__img"]}
-              src={game.thumb}
-              alt={"thumb of " + game.title}
-            />
+        <div className={styles.gameCard} key={game.dealID}>
+          <p className={styles["gameCard__title"]}>{game.title}</p>
+
+          <img
+            className={styles["gameCard__img"]}
+            src={game.thumb}
+            alt={"thumb of " + game.title}
+          />
+          <div>
             <p className={styles["gameCard__price"]}>Price: {game.salePrice}</p>
+            <a className={styles.link} href={gameLink + game.dealID}>
+              To Store Page
+            </a>
           </div>
-        </a>
+        </div>
       ))}
-    </div>
+    </>
   );
 };
 
