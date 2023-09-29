@@ -12,7 +12,10 @@ const Body = () => {
   return (
     <div className={styles.bodyContainer}>
       <div className={styles["bodyContainer__header"]}>
-        <h1 className={styles["bodyContainer__header__title"]}>Game Deals</h1>
+        <div className={styles["bodyContainer__header__title"]}>
+          <h1 className={styles["bodyContainer__header__title--h1"]}>Game Deals</h1>
+          <p className={styles["bodyContainer__header__title--p"]}>Choose a store an enjoy!</p>
+        </div>
         <div className={styles["bodyContainer__header__buttons"]}>
           <button
             className={styles.storeButton}

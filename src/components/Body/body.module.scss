@@ -15,11 +15,21 @@
     &__title {
       color: $color-text;
       font-family: $font-inclusive;
-      font-size: $font-size__xl;
+      
+      &--h1 {
+        margin: $indent__s 0;
+        font-size: $font-size__xl;
 
-      @include responsive-mobile {
-        font-size: $font-size__l;
+        @include responsive-mobile {
+          font-size: $font-size__l;
+        }
       }
+
+      &--p {
+        margin: $indent__s 0;
+        font-size: $font-size__base;
+      }
+
     }
 
     &__buttons {
